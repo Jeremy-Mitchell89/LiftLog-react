@@ -1,0 +1,169 @@
+body {
+  background-color: #e6ecf0;
+}
+
+.navbar {
+  margin-bottom: 1rem;
+}
+
+.navbar a {
+  font-weight: bold;
+}
+
+#navbar a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.navbar-brand > img {
+  display: inline-block;
+  width: 20px;
+  margin-bottom: 2px;
+  margin-right: 5px;
+  border-radius: 2px;
+}
+
+#logout:hover {
+  cursor: pointer;
+}
+
+ul.nav.navbar-nav li {
+  margin: 0 0.5rem;
+}
+
+.onboarding > .navbar {
+  background-image: linear-gradient(to right, #bdc3c7, #2c3e50);
+  background-size: 100% 100%;
+}
+
+.onboarding > .container {
+  margin-left: 5%;
+}
+
+.home-hero {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  z-index: -1;
+  background-image: url("./images/homepage.jpg");
+  text-align: center;
+  padding: 1rem;
+  background-position: center center;
+  background-size: cover;
+  color: white;
+}
+
+#logs .list-group-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 7px 20px 12px;
+}
+
+/* when item doesnt have no hover class... */
+#logs:not(.no-hover) .list-group-item:hover {
+  background-color: #e6ecf0;
+}
+
+.timeline-image {
+  border-radius: 5px;
+  height: 48px;
+  width: 48px;
+  margin: 2px 30px 10px 10px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+a.btn.btn-danger,
+a.btn.btn-danger:hover {
+  color: white;
+}
+
+.fade-in {
+  -webkit-animation: fade-in 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.movementFormInput {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #18121e;
+  transition: ease-in;
+  transition-duration: 0.15s;
+  margin: 5px 0px 5px 5px;
+  width: 70%;
+}
+.movementFormInput:hover {
+  border-bottom: 1.5px solid #18121e;
+}
+.movementFormInput:focus {
+  outline: none;
+  border-bottom: 2.5px solid #1612fc;
+}
+.movementform-submit {
+  background-color: #18121e;
+  color: #e6ecf0;
+  width: 15%;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.movementform-submit:hover {
+  background-color: #1612fc;
+  transition: ease-in;
+  transition-duration: 0.15s;
+}
+.movementform-submit:focus {
+  outline: none;
+  background-color: #1612fc;
+  transition: ease-in;
+  transition-duration: 0.15s;
+}
+.logDetail-container {
+  margin: 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+/* .minified {
+  height: 500px;
+  width: 800px;
+  background-color: orange;
+}
+.expanded {
+  height: 1000px;
+  width: 800px;
+  background-color: purple;
+}
+.list-group-item {
+  height: 80%;
+  width: 80%;
+  background-color: none;
+  border: none;
+}
+.list-group-item:hover {
+  background-color: none;
+} */

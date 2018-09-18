@@ -4,8 +4,13 @@ import { fetchOneLog } from "../store/actions/logs";
 import { removeMovement } from "../store/actions/movements";
 import { Link } from "react-router-dom";
 import Movement from "./movement.js";
+import MovementForm from "./MovementForm";
 
 class LogDetail extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { showform: false };
+  }
   componentDidMount() {
     this.props.fetchOneLog(
       this.props.currentUser.user.id,
@@ -13,11 +18,20 @@ class LogDetail extends Component {
       this.props.match.params.logid
     );
   }
+  componentDidUpdate(prevProps) {
+    this.props.foundLog !== prevProps.foundLog
+      ? this.props.fetchOneLog(
+          this.props.currentUser.user.id,
+          // this.props.match.params.id,
+          this.props.match.params.logid
+        )
+      : null;
+  }
   render() {
-    const { currentUser, foundLog, movements } = this.props;
+    const { movements } = this.props;
     let moves = movements
       ? movements.map((move, i) => (
-          <div key={i}>
+          <div className="movement" key={i}>
             <h2>{move.title}</h2>
             <Movement
               key={move._id}
@@ -27,39 +41,24 @@ class LogDetail extends Component {
             />
           </div>
         ))
-      : "";
-    //   ?  this.props.foundLog.movements.map(movement => (
-    //     <div className="logDetail-container">
-    //       <p>{movement.title}</p>
-    //       <label>Sets</label>
-    //       {movement.weight.map((weight, i) => (
-    //         <p>
-    //           {weight} x {movement.reps[i]}
-    //         </p>
-    //       ))}
-    //       <button
-    //         onClick={this.props.removeMovement.bind(
-    //           this,
-    //           currentUser.user.id,
-    //           foundLog._id,
-    //           movement._id
-    //         )}
-    //       >
-    //         Delete Movement
-    //       </button>
-    //     </div>
-    //   ))
-    // : "";
+      : null;
     return (
       <div>
+        <a
+          className="MovementFormShow"
+          onClick={() => this.setState({ showForm: !this.state.showForm })}
+        >
+          {this.state.showForm ? "Hide Movement Form" : "Add Movement"}
+        </a>
+        {this.state.showForm ? <MovementForm /> : null}
+
         <label>Date of Workout</label>
         <p>{this.props.foundLog.date}</p>
         <label>Title of Workout</label>
         <p>{this.props.foundLog.title}</p>
         <label>Notes</label>
         <p>{this.props.foundLog.notes}</p>
-
-        {moves}
+        <div className="movementContainer">{moves}</div>
       </div>
     );
   }

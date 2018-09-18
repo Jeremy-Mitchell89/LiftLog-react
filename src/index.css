@@ -89,8 +89,15 @@ a.btn.btn-danger:hover {
 .fade-in {
   -webkit-animation: fade-in 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   animation: fade-in 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  border: 1px solid #18121e;
+  border-radius: 20px;
+  margin: 20px;
+  padding: 10px;
 }
-
+.fade-in-set {
+  -webkit-animation: fade-in 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0;
@@ -167,3 +174,28 @@ a.btn.btn-danger:hover {
 .list-group-item:hover {
   background-color: none;
 } */
+.MovementFormShow {
+  border: 1px solid #18121e;
+  background-color: #18121e;
+  color: #e6ecf0;
+  display: flex;
+  padding-left: 42%;
+  padding-right: 42%;
+  border-radius: 5px;
+}
+.MovementFormShow:hover {
+  text-decoration: none;
+  color: white;
+  background-color: #1612fc;
+  transition: ease-in;
+  transition-duration: 0.15s;
+  cursor: pointer;
+}
+.movement {
+  border: 1px solid black;
+  margin: 5%;
+}
+.movementContainer {
+  display: flex;
+  flex-wrap: wrap;
+}

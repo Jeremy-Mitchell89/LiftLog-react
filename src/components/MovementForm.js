@@ -28,9 +28,6 @@ class MovementForm extends Component {
       weights: [],
       reps: []
     });
-    // this.props.history.push(
-    //   `/users/${this.props.currentUser.user.id}/logs/${this.props.foundLog._id}`
-    // );
   };
   handleChange = e => {
     this.setState({
@@ -61,7 +58,7 @@ class MovementForm extends Component {
   render() {
     let weight = this.state.weights.map((weight, i) => (
       <div
-        className="fade-in"
+        className="fade-in-set"
         key={`set ${i}`}
         style={{ display: "flex", flexDirection: "column" }}
       >
@@ -79,7 +76,7 @@ class MovementForm extends Component {
     ));
     let reps = this.state.reps.map((reps, i) => (
       <div
-        className="fade-in"
+        className="fade-in-set"
         key={`set ${i}`}
         style={{ display: "flex", flexDirection: "column" }}
       >
@@ -137,13 +134,6 @@ class MovementForm extends Component {
           <button className="movementform-submit" type="submit">
             Submit
           </button>
-          <Link
-            to={`/users/${this.props.currentUser.user.id}/logs/${
-              this.props.foundLog._id
-            }`}
-          >
-            Back to Log
-          </Link>
         </form>
       </div>
     );

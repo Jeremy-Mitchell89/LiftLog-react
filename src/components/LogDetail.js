@@ -14,23 +14,24 @@ class LogDetail extends Component {
   componentDidMount() {
     this.props.fetchOneLog(
       this.props.currentUser.user.id,
-      // this.props.match.params.id,
       this.props.match.params.logid
     );
   }
-  componentDidUpdate(prevProps) {
-    this.props.foundLog !== prevProps.foundLog
-      ? this.props.fetchOneLog(
-          this.props.currentUser.user.id,
-          // this.props.match.params.id,
-          this.props.match.params.logid
-        )
-      : null;
-  }
+  // componentDidUpdate(prevProps) {
+  //   console.log(prevProps);
+  //   console.log(this.props);
+  //   if (this.props.foundLog.movements)
+  //     this.props.foundLog.movements.length !==
+  //     prevProps.foundLog.movements.length
+  //       ? this.props.fetchOneLog(
+  //           this.props.currentUser.user.id,
+  //           this.props.match.params.logid
+  //         )
+  //       : null;
+  // }
   render() {
-    const { movements } = this.props;
-    let moves = movements
-      ? movements.map((move, i) => (
+    let moves = this.props.foundLog.movements
+      ? this.props.foundLog.movements.map((move, i) => (
           <div className="movement" key={i}>
             <h2>{move.title}</h2>
             <Movement
@@ -50,7 +51,9 @@ class LogDetail extends Component {
         >
           {this.state.showForm ? "Hide Movement Form" : "Add Movement"}
         </a>
-        {this.state.showForm ? <MovementForm /> : null}
+        {this.state.showForm ? (
+          <MovementForm updateLog={this.props.fetchOneLog.bind(this)} />
+        ) : null}
 
         <label>Date of Workout</label>
         <p>{this.props.foundLog.date}</p>
@@ -68,8 +71,7 @@ function mapStateToProps(state) {
   return {
     foundLog: state.foundLog,
     errors: state.errors,
-    currentUser: state.currentUser,
-    movements: state.foundLog.movements
+    currentUser: state.currentUser
   };
 }
 

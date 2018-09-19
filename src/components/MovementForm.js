@@ -131,7 +131,16 @@ class MovementForm extends Component {
               </button>
             </div>
           </div>
-          <button className="movementform-submit" type="submit">
+          <button
+            className="movementform-submit"
+            type="submit"
+            onClick={() =>
+              this.props.updateLog(
+                this.props.currentUser.user.id,
+                this.props.foundLog._id
+              )
+            }
+          >
             Submit
           </button>
         </form>

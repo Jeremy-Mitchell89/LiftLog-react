@@ -28,6 +28,15 @@ class MovementForm extends Component {
       weights: [],
       reps: []
     });
+    setTimeout(
+      function() {
+        this.props.updateLog(
+          this.props.currentUser.user.id,
+          this.props.foundLog._id
+        );
+      }.bind(this),
+      1000
+    );
   };
   handleChange = e => {
     this.setState({
@@ -134,12 +143,12 @@ class MovementForm extends Component {
           <button
             className="movementform-submit"
             type="submit"
-            onClick={() =>
-              this.props.updateLog(
-                this.props.currentUser.user.id,
-                this.props.foundLog._id
-              )
-            }
+            // onClick={() =>
+            //   this.props.updateLog(
+            //     this.props.currentUser.user.id,
+            //     this.props.foundLog._id
+            //   )
+            // }
           >
             Submit
           </button>

@@ -3,7 +3,7 @@ import { REMOVE_MOVEMENT } from "../actionTypes";
 const movements = (state = [""], action) => {
   switch (action.type) {
     case REMOVE_MOVEMENT:
-      return [];
+      return state.filter(move => move._id !== action.id);
     default:
       return state;
   }

@@ -39,6 +39,10 @@ class LogDetail extends Component {
               title={move.title}
               weight={move.weight}
               reps={move.reps}
+              removeMovement={this.props.removeMovement.bind(this)}
+              currentUser={this.props.currentUser.user.id}
+              logid={this.props.foundLog._id}
+              moveid={move._id}
             />
           </div>
         ))

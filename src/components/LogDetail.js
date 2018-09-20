@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchOneLog } from "../store/actions/logs";
 import { removeMovement } from "../store/actions/movements";
-import { Link } from "react-router-dom";
 import Movement from "./movement.js";
 import MovementForm from "./MovementForm";
 
@@ -17,18 +16,6 @@ class LogDetail extends Component {
       this.props.match.params.logid
     );
   }
-  // componentDidUpdate(prevProps) {
-  //   console.log(prevProps);
-  //   console.log(this.props);
-  //   if (this.props.foundLog.movements)
-  //     this.props.foundLog.movements.length !==
-  //     prevProps.foundLog.movements.length
-  //       ? this.props.fetchOneLog(
-  //           this.props.currentUser.user.id,
-  //           this.props.match.params.logid
-  //         )
-  //       : null;
-  // }
   render() {
     let moves = this.props.foundLog.movements
       ? this.props.foundLog.movements.map((move, i) => (

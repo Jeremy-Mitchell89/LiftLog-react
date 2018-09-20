@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { postNewMovement } from "../store/actions/movements";
-import { Link } from "react-router-dom";
 
 class MovementForm extends Component {
   constructor(props) {

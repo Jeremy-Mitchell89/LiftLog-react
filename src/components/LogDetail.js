@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchOneLog } from "../store/actions/logs";
-import { removeMovement } from "../store/actions/movements";
+import { fetchOneLog, removeMovement } from "../store/actions/logs";
+//import { removeMovement } from "../store/actions/movements";
 import Movement from "./movement.js";
 import MovementForm from "./MovementForm";
 

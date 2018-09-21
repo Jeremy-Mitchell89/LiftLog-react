@@ -1,6 +1,11 @@
 import { apiCall } from "../../services/api";
 import { addError } from "./errors";
-import { LOAD_LOGS, REMOVE_LOG, LOAD_LOG } from "../actionTypes";
+import {
+  LOAD_LOGS,
+  REMOVE_LOG,
+  LOAD_LOG,
+  REMOVE_MOVEMENT
+} from "../actionTypes";
 
 export const loadLogs = logs => ({
   type: LOAD_LOGS,
@@ -15,6 +20,11 @@ export const remove = id => ({
 export const loadLog = foundLog => ({
   type: LOAD_LOG,
   foundLog
+});
+
+export const removeMove = id => ({
+  type: REMOVE_MOVEMENT,
+  id
 });
 
 export const removeLog = (user_id, log_id) => {
@@ -47,4 +57,15 @@ export const postNewLog = (title, notes, date) => (dispatch, getState) => {
   return apiCall("post", `/api/users/${id}/logs`, { title, notes, date })
     .then(res => {})
     .catch(err => dispatch(addError(err.message)));
+};
+
+export const removeMovement = (user_id, log_id, movementid) => {
+  return dispatch => {
+    return apiCall(
+      "delete",
+      `/api/users/${user_id}/logs/${log_id}/movements/${movementid}`
+    )
+      .then(() => dispatch(removeMove(movementid)))
+      .catch(err => dispatch(addError(err.message)));
+  };
 };

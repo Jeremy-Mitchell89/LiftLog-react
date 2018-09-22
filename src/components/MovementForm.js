@@ -24,8 +24,8 @@ class MovementForm extends Component {
     );
     this.setState({
       title: "",
-      weights: [],
-      reps: []
+      weights: [""],
+      reps: [""]
     });
     setTimeout(
       function() {
@@ -59,8 +59,8 @@ class MovementForm extends Component {
   handleNewMovement(e) {
     const { weights, reps } = this.state;
     this.setState({
-      weights: [...weights, "test "],
-      reps: [...reps, "test "]
+      weights: [...weights, weights[weights.length - 1]],
+      reps: [...reps, reps[reps.length - 1]]
     });
   }
   render() {

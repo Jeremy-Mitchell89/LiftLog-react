@@ -5,8 +5,6 @@ const foundLog = (state = [], action) => {
     case LOAD_LOG:
       return action.foundLog;
     case REMOVE_MOVEMENT:
-      const filtered = state.movements.filter(move => move._id !== action.id);
-      console.log(filtered);
       return {
         _id: state._id,
         title: state.title,

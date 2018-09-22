@@ -31,7 +31,7 @@ class LogItem extends Component {
               </Moment>
             </span>
             <p>{this.props.title}</p>
-            {this.props.notes.length <= 100 ? (
+            {this.props.notes.length >= 100 ? (
               <p>{this.props.notes.substring(0, 99) + "..."}</p>
             ) : (
               <p>{this.props.notes}</p>

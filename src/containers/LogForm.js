@@ -32,21 +32,21 @@ class LogForm extends Component {
         <label>Title Of Log</label>
         <input
           type="text"
-          className="form-control"
+          className="log-form-input"
           value={this.state.title}
           onChange={e => this.setState({ title: e.target.value })}
         />
         <label>Notes</label>
         <input
           type="text"
-          className="form-control"
+          className="log-form-input"
           value={this.state.notes}
           onChange={e => this.setState({ notes: e.target.value })}
         />
         <label>Date of Workout</label>
         <input
           type="date"
-          className="form-control"
+          className="log-form-input"
           value={this.state.date}
           onChange={e => this.setState({ date: e.target.value })}
         />

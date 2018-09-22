@@ -1,7 +1,7 @@
 body {
   background-color: #e6ecf0;
   font-family: "Nanum Brush Script", cursive;
-  font-size: 35px;
+  font-size: 30px;
 }
 
 .navbar {
@@ -91,8 +91,8 @@ a.btn.btn-danger:hover {
 .fade-in {
   -webkit-animation: fade-in 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   animation: fade-in 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
-  border: 1px solid #18121e;
-  border-radius: 20px;
+  border: 5px solid #18121e;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
   margin: 20px;
   padding: 10px;
 }
@@ -151,6 +151,24 @@ a.btn.btn-danger:hover {
   transition: ease-in;
   transition-duration: 0.15s;
 }
+.movement-delete {
+  background-color: #18121e;
+  color: #e6ecf0;
+  width: auto;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.movement-delete:hover {
+  background-color: #1612fc;
+  transition: ease-in;
+  transition-duration: 0.15s;
+}
+.movement-delete:focus {
+  outline: none;
+  background-color: #1612fc;
+  transition: ease-in;
+  transition-duration: 0.15s;
+}
 .logDetail-container {
   margin: 10px;
   border: 1px solid #ddd;
@@ -181,9 +199,9 @@ a.btn.btn-danger:hover {
   background-color: #18121e;
   color: #e6ecf0;
   display: flex;
-  padding-left: 42%;
-  padding-right: 42%;
-  border-radius: 5px;
+  padding-left: 40%;
+  padding-right: 40%;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
 }
 .MovementFormShow:hover {
   text-decoration: none;
@@ -194,10 +212,21 @@ a.btn.btn-danger:hover {
   cursor: pointer;
 }
 .movement {
-  border: 1px solid black;
-  margin: 5%;
+  padding: 15px;
+  border: solid 5px #18121e;
+  margin: 2%;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
 }
+.movement h2 {
+  font-size: 50px;
+}
+
 .movementContainer {
   display: flex;
   flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.log-form-input {
+  width: 100%;
 }

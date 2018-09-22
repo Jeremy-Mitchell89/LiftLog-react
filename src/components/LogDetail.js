@@ -23,7 +23,6 @@ class LogDetail extends Component {
             <h2>{move.title}</h2>
             <Movement
               key={move._id}
-              title={move.title}
               weight={move.weight}
               reps={move.reps}
               removeMovement={this.props.removeMovement.bind(this)}

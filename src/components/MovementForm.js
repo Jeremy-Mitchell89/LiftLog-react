@@ -79,6 +79,7 @@ class MovementForm extends Component {
           name={`weight-${i}`}
           onChange={this.handleChangeWeight}
           value={weight}
+          tabIndex={i}
         />
       </div>
     ));
@@ -97,6 +98,7 @@ class MovementForm extends Component {
           name={`reps-${i}`}
           onChange={this.handleChangeReps}
           value={reps}
+          tabIndex={i + 1}
         />
       </div>
     ));
@@ -139,16 +141,7 @@ class MovementForm extends Component {
               </button>
             </div>
           </div>
-          <button
-            className="movementform-submit"
-            type="submit"
-            // onClick={() =>
-            //   this.props.updateLog(
-            //     this.props.currentUser.user.id,
-            //     this.props.foundLog._id
-            //   )
-            // }
-          >
+          <button className="movementform-submit" type="submit">
             Submit
           </button>
         </form>

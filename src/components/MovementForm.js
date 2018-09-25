@@ -68,7 +68,7 @@ class MovementForm extends Component {
       <div
         className="fade-in-set"
         key={`set ${i}`}
-        style={{ display: "flex", flexDirection: "column" }}
+        style={{ display: "flex", flexDirection: "row" }}
       >
         <label>Set {i + 1} Weight</label>
         <input
@@ -79,17 +79,7 @@ class MovementForm extends Component {
           name={`weight-${i}`}
           onChange={this.handleChangeWeight}
           value={weight}
-          tabIndex={i}
         />
-      </div>
-    ));
-    let reps = this.state.reps.map((reps, i) => (
-      <div
-        className="fade-in-set"
-        key={`set ${i}`}
-        style={{ display: "flex", flexDirection: "column" }}
-      >
-        <label>Set {i + 1} Reps</label>
         <input
           className="movementFormInput"
           placeholder="Reps completed"
@@ -97,8 +87,7 @@ class MovementForm extends Component {
           id="reps"
           name={`reps-${i}`}
           onChange={this.handleChangeReps}
-          value={reps}
-          tabIndex={i + 1}
+          value={this.state.reps[i]}
         />
       </div>
     ));
@@ -121,9 +110,6 @@ class MovementForm extends Component {
           <div style={{ display: "flex", flexDirection: "row" }}>
             <div style={{ display: "flex", flexDirection: "column" }}>
               {weight}
-            </div>
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              {reps}
             </div>
             <div
               style={{

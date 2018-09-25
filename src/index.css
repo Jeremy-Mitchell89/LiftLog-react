@@ -123,8 +123,8 @@ a.btn.btn-danger:hover {
   border-bottom: 1px solid #18121e;
   transition: ease-in;
   transition-duration: 0.15s;
-  margin: 5px 0px 5px 5px;
-  width: 70%;
+  margin: 5px 30px 5px 5px;
+  width: 35%;
 }
 .movementFormInput:hover {
   border-bottom: 1.5px solid #18121e;
@@ -173,6 +173,10 @@ a.btn.btn-danger:hover {
   margin: 10px;
   border: 1px solid #ddd;
   background-color: #fff;
+}
+.movementform-label {
+  width: 12%;
+  padding-top: 1.5%;
 }
 
 /* .minified {

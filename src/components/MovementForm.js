@@ -70,7 +70,7 @@ class MovementForm extends Component {
         key={`set ${i}`}
         style={{ display: "flex", flexDirection: "row" }}
       >
-        <label>Set {i + 1} Weight</label>
+        <label className="movementform-label">Set {i + 1}</label>
         <input
           className="movementFormInput"
           placeholder="Weight in lbs"
@@ -108,7 +108,9 @@ class MovementForm extends Component {
             value={this.state.title}
           />
           <div style={{ display: "flex", flexDirection: "row" }}>
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            <div
+              style={{ display: "flex", flexDirection: "column", width: "50%" }}
+            >
               {weight}
             </div>
             <div

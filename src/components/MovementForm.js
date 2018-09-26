@@ -101,7 +101,10 @@ class MovementForm extends Component {
           onSubmit={this.handleSubmit}
         >
           <label>Name of Movement</label>
-          <BasicAutocomplete />
+          <BasicAutocomplete
+            items={["apple", "orange", "banana"]}
+            onChange={selectedItem => this.setState({ title: selectedItem })}
+          />
           {/* <input
             className="movementFormInput"
             type="text"

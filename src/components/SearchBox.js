@@ -1,13 +1,6 @@
 import React from "react";
 import Downshift from "downshift";
 
-const items = [
-  { value: "apple" },
-  { value: "pear" },
-  { value: "orange" },
-  { value: "grape" },
-  { value: "banana" }
-];
 function BasicAutocomplete({ items, onChange }) {
   return (
     <Downshift onChange={onChange}>

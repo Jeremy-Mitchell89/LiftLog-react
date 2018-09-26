@@ -178,26 +178,6 @@ a.btn.btn-danger:hover {
   width: 12%;
   padding-top: 1.5%;
 }
-
-/* .minified {
-  height: 500px;
-  width: 800px;
-  background-color: orange;
-}
-.expanded {
-  height: 1000px;
-  width: 800px;
-  background-color: purple;
-}
-.list-group-item {
-  height: 80%;
-  width: 80%;
-  background-color: none;
-  border: none;
-}
-.list-group-item:hover {
-  background-color: none;
-} */
 .MovementFormShow {
   border: 1px solid #18121e;
   background-color: #18121e;

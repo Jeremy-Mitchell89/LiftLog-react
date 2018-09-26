@@ -13,6 +13,12 @@ class LogItem extends Component {
     };
   }
   render() {
+    let moves = this.props.moves.map((move, i) => (
+      <ul>
+        <li>{move.title}</li>
+      </ul>
+    ));
+
     return (
       <div className={this.state.class}>
         <li className="list-group-item">
@@ -44,6 +50,7 @@ class LogItem extends Component {
               </div>
             )}
           </div>
+          <div>{moves}</div>
         </li>
       </div>
     );

@@ -21,6 +21,7 @@ class LogList extends Component {
           profileImageUrl={l.user.profileImageUrl}
           removeLog={removeLog.bind(this, l.user._id, l._id)}
           isCorrectUser={currentUser === l.user._id}
+          moves={l.movements}
         />
         <Link to={`/users/${this.props.currentUser}/logs/${l._id}`}>
           View Log Details

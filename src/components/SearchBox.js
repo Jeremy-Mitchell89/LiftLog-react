@@ -13,9 +13,16 @@ function BasicAutocomplete({ items, onChange }) {
         highlightedIndex
       }) => (
         <div>
-          <input {...getInputProps({ placeholder: "Favorite color ?" })} />
+          <input {...getInputProps({ width: "100%" })} />
           {isOpen ? (
-            <div style={{ border: "1px solid #ccc" }}>
+            <div
+              style={{
+                backgroundColor: "#e6ecf0",
+                border: "1px solid #ccc",
+                position: "absolute",
+                zIndex: 9999
+              }}
+            >
               {items
                 .filter(
                   i =>
@@ -29,7 +36,8 @@ function BasicAutocomplete({ items, onChange }) {
                     style={{
                       backgroundColor:
                         highlightedIndex === index ? "gray" : "white",
-                      fontWeight: selectedItem === item ? "bold" : "normal"
+                      fontWeight: selectedItem === item ? "bold" : "normal",
+                      padding: "10px"
                     }}
                   >
                     {item}

@@ -29,6 +29,7 @@ class LogDetail extends Component {
               currentUser={this.props.currentUser.user.id}
               logid={this.props.foundLog._id}
               moveid={move._id}
+              // style={{ position: "absolute" }}
             />
           </div>
         ))

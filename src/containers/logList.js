@@ -10,8 +10,8 @@ class LogList extends Component {
   }
   render() {
     const { logs, removeLog, currentUser } = this.props;
-    let logList = logs.map(l => (
-      <div>
+    let logList = logs.map((l, i) => (
+      <div key={i}>
         <LogItem
           key={l._id}
           date={l.date}
@@ -24,12 +24,7 @@ class LogList extends Component {
           moves={l.movements}
         />
         <Link to={`/users/${this.props.currentUser}/logs/${l._id}`}>
-          View Log Details
-        </Link>
-        <Link
-          to={`/users/${this.props.currentUser}/logs/${l._id}/movements/new`}
-        >
-          New Move
+          View/Edit Log
         </Link>
       </div>
     ));

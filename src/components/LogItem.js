@@ -14,7 +14,7 @@ class LogItem extends Component {
   }
   render() {
     let moves = this.props.moves.map((move, i) => (
-      <ul>
+      <ul key={i}>
         <li>{move.title}</li>
       </ul>
     ));

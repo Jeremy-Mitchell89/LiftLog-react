@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { postNewMovement } from "../store/actions/movements";
-import Downshift from "downshift";
 import BasicAutocomplete from "./SearchBox";
+import movementList from "../images/MovementList";
 
 class MovementForm extends Component {
   constructor(props) {
@@ -102,17 +102,9 @@ class MovementForm extends Component {
         >
           <label>Name of Movement</label>
           <BasicAutocomplete
-            items={["apple", "orange", "banana"]}
+            items={movementList}
             onChange={selectedItem => this.setState({ title: selectedItem })}
           />
-          {/* <input
-            className="movementFormInput"
-            type="text"
-            id="title"
-            name="title"
-            onChange={this.handleChange}
-            value={this.state.title}
-          /> */}
           <div style={{ display: "flex", flexDirection: "row" }}>
             <div
               style={{ display: "flex", flexDirection: "column", width: "50%" }}

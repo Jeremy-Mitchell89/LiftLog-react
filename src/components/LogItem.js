@@ -42,15 +42,15 @@ class LogItem extends Component {
             ) : (
               <p>{this.props.notes}</p>
             )}
-            {this.props.isCorrectUser && (
-              <div>
-                <a className="btn btn-danger" onClick={this.props.removeLog}>
-                  Delete
-                </a>
-              </div>
-            )}
           </div>
           <div>{moves}</div>
+          {this.props.isCorrectUser && (
+            <div>
+              <a className="btn btn-danger" onClick={this.props.removeLog}>
+                Delete
+              </a>
+            </div>
+          )}
         </li>
       </div>
     );

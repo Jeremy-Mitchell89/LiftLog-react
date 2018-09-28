@@ -21,7 +21,7 @@ class LogItem extends Component {
 
     return (
       <div className={this.state.class}>
-        <li className="list-group-item">
+        <li className="log-item">
           <img
             src={this.props.profileImageUrl || DefaultProfileImg}
             alt={this.props.username}
@@ -30,7 +30,7 @@ class LogItem extends Component {
             className="timeline-image"
           />
           <div className="log-area">
-            <Link to="/">@{this.props.username} &nbsp;</Link>
+            <Link to="/">{this.props.username} &nbsp;</Link>
             <span className="text-muted">
               <Moment className="text-muted" format="Do MMM YYYY">
                 {this.props.date}

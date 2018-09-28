@@ -67,6 +67,13 @@ ul.nav.navbar-nav li {
   padding: 7px 20px 12px;
 }
 
+.log-item {
+  padding: 15px;
+  border: solid 5px #18121e;
+  margin: 2%;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
 /* when item doesnt have no hover class... */
 #logs:not(.no-hover) .list-group-item:hover {
   background-color: #e6ecf0;

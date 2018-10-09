@@ -10,10 +10,13 @@ function BasicAutocomplete({ items, onChange }) {
         isOpen,
         inputValue,
         selectedItem,
-        highlightedIndex
+        highlightedIndex,
+        reset
       }) => (
         <div>
-          <input {...getInputProps({ width: "100%" })} />
+          <input
+            {...getInputProps({ width: "100%" }, (onChange = { reset }))}
+          />
           {isOpen ? (
             <div
               style={{

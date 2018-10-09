@@ -23,9 +23,15 @@ class LogList extends Component {
           isCorrectUser={currentUser === l.user._id}
           moves={l.movements}
         />
-        <Link to={`/users/${this.props.currentUser}/logs/${l._id}`}>
-          View/Edit Log
-        </Link>
+        {currentUser === l.user._id ? (
+          <Link to={`/users/${this.props.currentUser}/logs/${l._id}`}>
+            View/Edit Log
+          </Link>
+        ) : (
+          <Link to={`/users/${this.props.currentUser}/logs/${l._id}`}>
+            View Log
+          </Link>
+        )}
       </div>
     ));
     return (

@@ -29,23 +29,28 @@ class LogDetail extends Component {
               currentUser={this.props.currentUser.user.id}
               logid={this.props.foundLog._id}
               moveid={move._id}
-              // style={{ position: "absolute" }}
+              isCorrectUser={
+                this.props.currentUser.user.id == this.props.foundLog.user
+              }
             />
           </div>
         ))
       : null;
     return (
       <div>
-        <a
-          className="MovementFormShow"
-          onClick={() => this.setState({ showForm: !this.state.showForm })}
-        >
-          {this.state.showForm ? "Hide Movement Form" : "Add Movement"}
-        </a>
-        {this.state.showForm ? (
-          <MovementForm updateLog={this.props.fetchOneLog.bind(this)} />
-        ) : null}
-
+        {this.props.currentUser.user.id == this.props.foundLog.user && (
+          <div>
+            <a
+              className="MovementFormShow"
+              onClick={() => this.setState({ showForm: !this.state.showForm })}
+            >
+              {this.state.showForm ? "Hide Movement Form" : "Add Movement"}
+            </a>
+            {this.state.showForm ? (
+              <MovementForm updateLog={this.props.fetchOneLog.bind(this)} />
+            ) : null}
+          </div>
+        )}
         <label>Date of Workout</label>
         <p>{this.props.foundLog.date}</p>
         <label>Title of Workout</label>

@@ -30,7 +30,7 @@ class LogItem extends Component {
             className="timeline-image"
           />
           <div className="log-area">
-            <Link to="/">{this.props.username} &nbsp;</Link>
+            <p>{this.props.username}</p>
             <span className="text-muted">
               <Moment className="text-muted" format="Do MMM YYYY">
                 {this.props.date}

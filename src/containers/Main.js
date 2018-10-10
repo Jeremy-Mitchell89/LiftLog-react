@@ -5,6 +5,7 @@ import Homepage from "../components/Homepage";
 import AuthForm from "../components/AuthForm";
 import LogDetail from "../components/LogDetail";
 import MovementForm from "../components/MovementForm";
+import UserInfo from "../components/UserInfo";
 import { authUser } from "../store/actions/auth";
 import { removeError } from "../store/actions/errors";
 import withAuth from "../hocs/withAuth";
@@ -15,6 +16,12 @@ const Main = props => {
   return (
     <div className="container">
       <Switch>
+        <Route
+          path="/users/:userid"
+          render={props => {
+            return <UserInfo currentUser={currentUser} {...props} />;
+          }}
+        />
         <Route
           exact
           path="/"
@@ -64,18 +71,11 @@ const Main = props => {
           }}
         />
         <Route
-          /* <Route
-          path="/users/:id/logs/:foundLogId/movements/new"
-          component={MovementForm}
-        />
-        <Route */
           path="/users/:id/logs/:logid"
           render={props => {
             return <LogDetail {...props} />;
           }}
         />
-
-        {/* <Route path={`/users/:id/logs/:logid`} component={LogDetail} /> */}
       </Switch>
     </div>
   );

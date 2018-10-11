@@ -17,6 +17,7 @@ const Main = props => {
     <div className="container">
       <Switch>
         <Route
+          exact
           path="/users/:userid"
           render={props => {
             return <UserInfo currentUser={currentUser} {...props} />;

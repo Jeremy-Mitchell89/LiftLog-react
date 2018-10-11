@@ -7,7 +7,11 @@ export class AuthForm extends Component {
       email: "",
       username: "",
       password: "",
-      profileImageUrl: ""
+      profileImageUrl: "",
+      frontSquat: 0,
+      benchPress: 0,
+      deadLift: 0,
+      overheadPress: 0
     };
   }
   handleSubmit = e => {
@@ -90,6 +94,42 @@ export class AuthForm extends Component {
                     onChange={this.handleChange}
                     value={profileImageUrl}
                     type="text"
+                  />
+                  <label htmlFor="front-squat">Front Squat 1RM:</label>
+                  <input
+                    className="form-control"
+                    id="front-squat"
+                    name="frontSquat"
+                    onChange={this.handleChange}
+                    value={this.state.frontSquat}
+                    type="number"
+                  />
+                  <label htmlFor="bench-press">Bench Press 1RM:</label>
+                  <input
+                    className="form-control"
+                    id="bench-press"
+                    name="benchPress"
+                    onChange={this.handleChange}
+                    value={this.state.benchPress}
+                    type="number"
+                  />
+                  <label htmlFor="deadlift">DeadLift 1RM:</label>
+                  <input
+                    className="form-control"
+                    id="deadlift"
+                    name="deadLift"
+                    onChange={this.handleChange}
+                    value={this.state.deadLift}
+                    type="number"
+                  />
+                  <label htmlFor="overhead-press">Overhead Press 1RM:</label>
+                  <input
+                    className="form-control"
+                    id="overhead-press"
+                    name="overheadPress"
+                    onChange={this.handleChange}
+                    value={this.state.overheadPress}
+                    type="number"
                   />
                 </div>
               )}

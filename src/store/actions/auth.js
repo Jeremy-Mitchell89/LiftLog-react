@@ -20,6 +20,23 @@ export function logout() {
     dispatch(setCurrentUser({}));
   };
 }
+export function updateUser(id, userinfo) {
+  return dispatch => {
+    return apiCall("put", `/api/users/${id}`, userinfo)
+      .then(res => {
+        dispatch(setCurrentUser(res));
+      })
+      .catch(err => dispatch(addError(err.message)));
+  };
+}
+export function getUserStats(id) {
+  return dispatch => {
+    return apiCall("get", `/api/users/${id}`).then(res => {
+      localStorage.setItem("userInfo", JSON.stringify(res));
+      dispatch(setCurrentUser(res));
+    });
+  };
+}
 
 export function authUser(type, userData) {
   return dispatch => {

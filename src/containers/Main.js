@@ -6,13 +6,20 @@ import AuthForm from "../components/AuthForm";
 import LogDetail from "../components/LogDetail";
 import MovementForm from "../components/MovementForm";
 import UserInfo from "../components/UserInfo";
-import { authUser } from "../store/actions/auth";
+import { authUser, updateUser, getUserStats } from "../store/actions/auth";
 import { removeError } from "../store/actions/errors";
 import withAuth from "../hocs/withAuth";
 import LogForm from "../containers/LogForm";
 
 const Main = props => {
-  const { authUser, errors, removeError, currentUser, foundLog } = props;
+  const {
+    authUser,
+    errors,
+    removeError,
+    currentUser,
+    foundLog,
+    updateUser
+  } = props;
   return (
     <div className="container">
       <Switch>
@@ -20,7 +27,7 @@ const Main = props => {
           exact
           path="/users/:userid"
           render={props => {
-            return <UserInfo currentUser={currentUser} {...props} />;
+            return <UserInfo {...props} />;
           }}
         />
         <Route
@@ -93,6 +100,6 @@ function mapStateToProps(state) {
 export default withRouter(
   connect(
     mapStateToProps,
-    { authUser, removeError }
+    { authUser, removeError, updateUser, getUserStats }
   )(Main)
 );

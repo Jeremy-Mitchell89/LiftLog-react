@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { postNewMovement } from "../store/actions/movements";
-import BasicAutocomplete from "./SearchBox";
+import NameOfMovement from "./SearchBox";
 import movementList from "../images/MovementList";
+import routines from "../../src/images/routines";
+import movements from "../../src/images/routines";
 
 class MovementForm extends Component {
   constructor(props) {
@@ -10,7 +12,9 @@ class MovementForm extends Component {
     this.state = {
       title: " ",
       weights: [""],
-      reps: [""]
+      reps: [""],
+      routine: "pervertor",
+      week: ""
     };
     this.handleChangeWeight = this.handleChangeWeight.bind(this);
     this.handleChangeReps = this.handleChangeReps.bind(this);
@@ -58,14 +62,29 @@ class MovementForm extends Component {
     );
     this.setState({ reps });
   }
+  selectorChange(e) {
+    this.setState({ routine: e.target.value });
+  }
   handleNewMovement(e) {
     const { weights, reps } = this.state;
     this.setState({
       weights: [...weights, weights[weights.length - 1]],
       reps: [...reps, reps[reps.length - 1]]
     });
+    console.log(JSON.parse(localStorage.userInfo));
+    console.log(
+      Object.keys(routines).map(routine => (
+        <option value={routine}>{routine}</option>
+      ))
+    );
   }
   render() {
+    let options = Object.keys(routines).map(routine => (
+      <option value={routine}>{routine}</option>
+    ));
+    let weekOptions = Object.keys(routines[this.state.routine]).map(week => (
+      <option value={week}>{week}</option>
+    ));
     let weight = this.state.weights.map((weight, i) => (
       <div
         className="fade-in-set"
@@ -100,11 +119,29 @@ class MovementForm extends Component {
           style={{ display: "flex", flexDirection: "column" }}
           onSubmit={this.handleSubmit}
         >
-          <label>Name of Movement</label>
-          <BasicAutocomplete
-            items={movementList}
-            onChange={selectedItem => this.setState({ title: selectedItem })}
-          />
+          <div style={{ display: "flex", flexDirection: "row" }}>
+            <label>Name of Movement</label>
+            <NameOfMovement
+              items={movementList}
+              onChange={selectedItem => this.setState({ title: selectedItem })}
+            />
+          </div>
+          <div>
+            <select>
+              <option value="benchPress">Bench Press</option>
+              <option value="deadLift">Deadlift</option>
+              <option value="frontSquat">Front Squat</option>
+              <option value="overheadPress">Overhead Press</option>
+            </select>
+            <select
+              value={this.state.routine}
+              onChange={this.selectorChange.bind(this)}
+              id="routineSelector"
+            >
+              {options}
+            </select>
+            <select>{weekOptions}</select>
+          </div>
           <div style={{ display: "flex", flexDirection: "row" }}>
             <div
               style={{ display: "flex", flexDirection: "column", width: "50%" }}

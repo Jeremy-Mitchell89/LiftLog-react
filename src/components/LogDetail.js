@@ -30,7 +30,7 @@ class LogDetail extends Component {
               logid={this.props.foundLog._id}
               moveid={move._id}
               isCorrectUser={
-                this.props.currentUser.user.id == this.props.foundLog.user
+                this.props.currentUser.user.id === this.props.foundLog.user
               }
             />
           </div>
@@ -38,7 +38,7 @@ class LogDetail extends Component {
       : null;
     return (
       <div>
-        {this.props.currentUser.user.id == this.props.foundLog.user && (
+        {this.props.currentUser.user.id === this.props.foundLog.user && (
           <div>
             <a
               className="MovementFormShow"

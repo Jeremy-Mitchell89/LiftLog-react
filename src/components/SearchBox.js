@@ -1,7 +1,7 @@
 import React from "react";
 import Downshift from "downshift";
 
-function BasicAutocomplete({ items, onChange }) {
+function NameOfMovement({ items, onChange }) {
   return (
     <Downshift onChange={onChange}>
       {({
@@ -54,4 +54,4 @@ function BasicAutocomplete({ items, onChange }) {
   );
 }
 
-export default BasicAutocomplete;
+export default NameOfMovement;

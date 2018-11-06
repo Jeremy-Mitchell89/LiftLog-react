@@ -12,14 +12,7 @@ import withAuth from "../hocs/withAuth";
 import LogForm from "../containers/LogForm";
 
 const Main = props => {
-  const {
-    authUser,
-    errors,
-    removeError,
-    currentUser,
-    foundLog,
-    updateUser
-  } = props;
+  const { authUser, errors, removeError, currentUser, foundLog } = props;
   return (
     <div className="container">
       <Switch>

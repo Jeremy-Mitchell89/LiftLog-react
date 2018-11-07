@@ -86,5 +86,4 @@ const routines = {
   }
 };
 
-const movements = [" Bench Press", "Squat", "Deadlift", "Overhead Press"];
 export default routines;

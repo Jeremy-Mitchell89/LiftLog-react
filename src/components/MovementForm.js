@@ -4,7 +4,6 @@ import { postNewMovement } from "../store/actions/movements";
 import NameOfMovement from "./SearchBox";
 import movementList from "../images/MovementList";
 import routines from "../../src/images/routines";
-import movements from "../../src/images/routines";
 
 class MovementForm extends Component {
   constructor(props) {
@@ -14,7 +13,8 @@ class MovementForm extends Component {
       weights: [""],
       reps: [""],
       routine: "pervertor",
-      week: ""
+      week: "week1",
+      liftCompleted: "benchPress"
     };
     this.handleChangeWeight = this.handleChangeWeight.bind(this);
     this.handleChangeReps = this.handleChangeReps.bind(this);
@@ -72,19 +72,41 @@ class MovementForm extends Component {
       reps: [...reps, reps[reps.length - 1]]
     });
     console.log(JSON.parse(localStorage.userInfo));
-    console.log(
-      Object.keys(routines).map(routine => (
-        <option value={routine}>{routine}</option>
-      ))
-    );
+  }
+  addSets() {
+    const lifts = JSON.parse(localStorage.userInfo);
+    var lift = this.state.liftCompleted;
+    let test = routines[this.state.routine][this.state.week].weight.map(x => {
+      return x * lifts[this.state.liftCompleted];
+    });
+    this.setState({
+      weights: test,
+      reps: routines[this.state.routine][this.state.week].reps
+    });
+    // console.log(this.state.routine);
+    // console.log(this.state.week);
+    // console.log(routines[this.state.routine][this.state.week]);
+    // console.log(lifts[this.state.liftCompleted]);
+  }
+  selectLift(e) {
+    this.setState({ liftCompleted: [e.target.value] });
+  }
+  changeWeek(e) {
+    this.setState({ week: e.target.value });
   }
   render() {
-    let options = Object.keys(routines).map(routine => (
-      <option value={routine}>{routine}</option>
+    let options = Object.keys(routines).map((routine, i) => (
+      <option key={i} value={routine}>
+        {routine}
+      </option>
     ));
-    let weekOptions = Object.keys(routines[this.state.routine]).map(week => (
-      <option value={week}>{week}</option>
-    ));
+    let weekOptions = Object.keys(routines[this.state.routine]).map(
+      (week, i) => (
+        <option key={i} value={week}>
+          {week}
+        </option>
+      )
+    );
     let weight = this.state.weights.map((weight, i) => (
       <div
         className="fade-in-set"
@@ -127,7 +149,10 @@ class MovementForm extends Component {
             />
           </div>
           <div>
-            <select>
+            <select
+              onChange={this.selectLift.bind(this)}
+              value={this.state.liftCompleted}
+            >
               <option value="benchPress">Bench Press</option>
               <option value="deadLift">Deadlift</option>
               <option value="frontSquat">Front Squat</option>
@@ -136,11 +161,18 @@ class MovementForm extends Component {
             <select
               value={this.state.routine}
               onChange={this.selectorChange.bind(this)}
-              id="routineSelector"
             >
               {options}
             </select>
-            <select>{weekOptions}</select>
+            <select
+              value={this.state.week}
+              onChange={this.changeWeek.bind(this)}
+            >
+              {weekOptions}
+            </select>
+            <button type="button" onClick={this.addSets.bind(this)}>
+              Add working sets
+            </button>
           </div>
           <div style={{ display: "flex", flexDirection: "row" }}>
             <div

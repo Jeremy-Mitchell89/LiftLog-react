@@ -11,20 +11,28 @@ class UserInfo extends Component {
       overheadPress: this.props.currentUser.user.overheadPress || 0
     };
   }
+  componentWillMount() {
+    let test = JSON.parse(localStorage.getItem("userInfo"));
+  }
 
   componentDidMount() {
-    let test = JSON.parse(localStorage.getItem("userInfo"));
-    this.props.getUserStats(
-      this.props.currentUser.user.id
-        ? this.props.currentUser.user.id
-        : this.props.currentUser.user._id
-    );
-    this.setState({
-      frontSquat: test.frontSquat,
-      deadLift: test.deadLift,
-      benchPress: test.benchPress,
-      overheadPress: test.overheadPress
-    });
+    this.props
+      .getUserStats(
+        this.props.currentUser.user.id
+          ? this.props.currentUser.user.id
+          : this.props.currentUser.user._id
+      )
+      .then(() => {
+        const test = JSON.parse(localStorage.getItem("userInfo"));
+        console.log(test);
+
+        this.setState({
+          frontSquat: test.frontSquat,
+          deadLift: test.deadLift,
+          benchPress: test.benchPress,
+          overheadPress: test.overheadPress
+        });
+      });
   }
 
   handleChange = e => {

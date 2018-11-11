@@ -15,6 +15,7 @@ function NameOfMovement({ items, onChange }) {
       }) => (
         <div>
           <input
+            required
             {...getInputProps({ width: "100%" }, (onChange = { reset }))}
           />
           {isOpen ? (

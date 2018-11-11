@@ -23,25 +23,19 @@ class MovementForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.postNewMovement(
-      this.state.title,
-      this.state.weights,
-      this.state.reps
-    );
+    this.props
+      .postNewMovement(this.state.title, this.state.weights, this.state.reps)
+      .then(() => {
+        this.props.updateLog(
+          this.props.currentUser.user.id,
+          this.props.foundLog._id
+        );
+      });
     this.setState({
       title: "",
       weights: [""],
       reps: [""]
     });
-    setTimeout(
-      function() {
-        this.props.updateLog(
-          this.props.currentUser.user.id,
-          this.props.foundLog._id
-        );
-      }.bind(this),
-      300
-    );
   };
   handleChange = e => {
     this.setState({
@@ -77,7 +71,7 @@ class MovementForm extends Component {
     const lifts = JSON.parse(localStorage.userInfo);
     var lift = this.state.liftCompleted;
     let test = routines[this.state.routine][this.state.week].weight.map(x => {
-      return x * lifts[this.state.liftCompleted];
+      return Math.ceil((x * lifts[this.state.liftCompleted]) / 5) * 5;
     });
     this.setState({
       weights: test,
@@ -115,6 +109,7 @@ class MovementForm extends Component {
       >
         <label className="movementform-label">Set {i + 1}</label>
         <input
+          required
           className="movementFormInput"
           placeholder="Weight in lbs"
           type="number"
@@ -124,6 +119,7 @@ class MovementForm extends Component {
           value={weight}
         />
         <input
+          required
           className="movementFormInput"
           placeholder="Reps completed"
           type="number"

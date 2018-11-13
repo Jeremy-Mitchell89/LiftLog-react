@@ -29,12 +29,12 @@ class LogItem extends Component {
             className="timeline-image"
           />
           <div className="log-area">
-            <p>{this.props.username}</p>
-            <span className="text-muted">
+            <div className="log-user-info">
+              <p>{this.props.username}</p>
               <Moment className="text-muted" format="Do MMM YYYY">
                 {this.props.date}
               </Moment>
-            </span>
+            </div>
             <p>{this.props.title}</p>
             {this.props.notes.length >= 100 ? (
               <p>{this.props.notes.substring(0, 99) + "..."}</p>

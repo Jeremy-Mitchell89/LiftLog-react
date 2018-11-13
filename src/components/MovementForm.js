@@ -69,7 +69,6 @@ class MovementForm extends Component {
   }
   addSets() {
     const lifts = JSON.parse(localStorage.userInfo);
-    var lift = this.state.liftCompleted;
     let test = routines[this.state.routine][this.state.week].weight.map(x => {
       return Math.ceil((x * lifts[this.state.liftCompleted]) / 5) * 5;
     });

@@ -7,8 +7,8 @@ class LogForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "test",
-      notes: "test",
+      title: "",
+      notes: "",
       date: moment().format("YYYY-MM-DD")
     };
   }

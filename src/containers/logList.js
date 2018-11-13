@@ -1,12 +1,15 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchLogs, removeLog } from "../store/actions/logs";
+import { getUserStats } from "../store/actions/auth";
 import LogItem from "../components/LogItem";
 import { Link } from "react-router-dom";
 
 class LogList extends Component {
   componentDidMount() {
-    this.props.fetchLogs();
+    this.props
+      .fetchLogs()
+      .then(() => this.props.getUserStats(this.props.currentUser));
   }
   render() {
     const { logs, removeLog, currentUser } = this.props;
@@ -55,5 +58,5 @@ function mapStateToProps(state) {
 
 export default connect(
   mapStateToProps,
-  { fetchLogs, removeLog }
+  { fetchLogs, removeLog, getUserStats }
 )(LogList);

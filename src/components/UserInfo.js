@@ -11,9 +11,9 @@ class UserInfo extends Component {
       overheadPress: this.props.currentUser.user.overheadPress || 0
     };
   }
-  componentWillMount() {
-    let test = JSON.parse(localStorage.getItem("userInfo"));
-  }
+  // componentWillMount() {
+  //   let test = JSON.parse(localStorage.getItem("userInfo"));
+  // }
 
   componentDidMount() {
     this.props

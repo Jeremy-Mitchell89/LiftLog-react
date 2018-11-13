@@ -1,7 +1,5 @@
 body {
-  background-color: #e6ecf0;
-  font-family: "Nanum Brush Script", cursive;
-  font-size: 30px;
+  background-color: #efefef;
 }
 
 .navbar {
@@ -10,6 +8,7 @@ body {
 
 .navbar a {
   font-weight: bold;
+  color: #333;
 }
 
 #navbar a:hover {
@@ -34,7 +33,7 @@ ul.nav.navbar-nav li {
 }
 
 .onboarding > .navbar {
-  background-image: linear-gradient(to right, #bdc3c7, #2c3e50);
+  background-color: #fff;
   background-size: 100% 100%;
 }
 
@@ -69,21 +68,35 @@ ul.nav.navbar-nav li {
 
 .log-item {
   padding: 15px;
-  border: solid 5px #18121e;
+  border: none;
   margin: 2%;
-  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  background-color: #fff;
+  list-style-type: none;
+}
+.log-item:hover {
+  background-color: #d1d1d1;
+}
+.log-user-info {
+  line-height: 0.7;
+}
+:last-child .log-user-info {
+  padding-bottom: 20px;
+}
+.log-user-info p {
+  font-weight: bold;
+  font-size: 20px;
 }
 
-/* when item doesnt have no hover class... */
+/* when item doesnt have .no-hover class... */
 #logs:not(.no-hover) .list-group-item:hover {
   background-color: #e6ecf0;
 }
 
 .timeline-image {
   border-radius: 5px;
-  height: 48px;
-  width: 48px;
-  margin: 2px 30px 10px 10px;
+  height: 60px;
+  width: 60px;
+  margin: 2px 30px 10px 2px;
 }
 
 .btn:hover {

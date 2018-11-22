@@ -1,0 +1,230 @@
+body {
+  background-color: #efefef;
+}
+
+.navbar {
+  margin-bottom: 1rem;
+  a {
+    font-weight: bold;
+    color: rgb(75, 75, 75);
+  }
+}
+
+.navbar-brand > img {
+  display: inline-block;
+  width: 20px;
+  margin-bottom: 2px;
+  margin-right: 5px;
+  border-radius: 2px;
+}
+
+#logout:hover {
+  cursor: pointer;
+}
+
+ul.nav.navbar-nav li {
+  margin: 0 0.5rem;
+}
+
+.onboarding > .navbar {
+  background-color: #fff;
+  background-size: 100% 100%;
+}
+
+.onboarding > .container {
+  margin-left: 5%;
+}
+
+.home-hero {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  z-index: -1;
+  background-image: url("./images/homepage.jpg");
+  text-align: center;
+  padding: 1rem;
+  background-position: center center;
+  background-size: cover;
+  color: white;
+}
+
+#logs .list-group-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 7px 20px 12px;
+}
+
+.log-item {
+  padding: 15px;
+  border: none;
+  margin: 2%;
+  background-color: #fff;
+  list-style-type: none;
+}
+.log-item:hover {
+  background-color: #d1d1d1;
+}
+.log-user-info {
+  line-height: 0.7;
+}
+:last-child .log-user-info {
+  padding-bottom: 20px;
+}
+.log-user-info p {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* when item doesnt have .no-hover class... */
+#logs:not(.no-hover) .list-group-item:hover {
+  background-color: #e6ecf0;
+}
+
+.timeline-image {
+  border-radius: 5px;
+  height: 60px;
+  width: 60px;
+  margin: 2px 30px 10px 2px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+a.btn.btn-danger,
+a.btn.btn-danger:hover {
+  color: white;
+}
+
+.fade-in {
+  -webkit-animation: fade-in 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  border: 5px solid #18121e;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+  margin: 20px;
+  padding: 10px;
+}
+.fade-in-set {
+  -webkit-animation: fade-in 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-in 1s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.movementFormInput {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #18121e;
+  transition: ease-in;
+  transition-duration: 0.15s;
+  margin: 5px 30px 5px 5px;
+  width: 35%;
+}
+.movementFormInput:hover {
+  border-bottom: 1.5px solid #18121e;
+}
+.movementFormInput:focus {
+  outline: none;
+  border-bottom: 2.5px solid #1612fc;
+}
+.movementform-submit {
+  background-color: #18121e;
+  color: #e6ecf0;
+  width: 15%;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.movementform-submit:hover {
+  background-color: #1612fc;
+  transition: ease-in;
+  transition-duration: 0.15s;
+}
+.movementform-submit:focus {
+  outline: none;
+  background-color: #1612fc;
+  transition: ease-in;
+  transition-duration: 0.15s;
+}
+.movement-delete {
+  background-color: #18121e;
+  color: #e6ecf0;
+  width: auto;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.movement-delete:hover {
+  background-color: #1612fc;
+  transition: ease-in;
+  transition-duration: 0.15s;
+}
+.movement-delete:focus {
+  outline: none;
+  background-color: #1612fc;
+  transition: ease-in;
+  transition-duration: 0.15s;
+}
+.logDetail-container {
+  margin: 10px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+.movementform-label {
+  width: 13%;
+  padding-top: 1.5%;
+}
+.MovementFormShow {
+  border: 1px solid #18121e;
+  background-color: #18121e;
+  color: #e6ecf0;
+  display: flex;
+  padding-left: 40%;
+  padding-right: 40%;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+.MovementFormShow:hover {
+  text-decoration: none;
+  color: white;
+  background-color: #1612fc;
+  transition: ease-in;
+  transition-duration: 0.15s;
+  cursor: pointer;
+}
+.movement {
+  padding: 15px;
+  border: solid 5px #18121e;
+  margin: 2%;
+  border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+.movement h2 {
+  font-size: 50px;
+}
+
+.movementContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.log-form-input {
+  width: 100%;
+}
